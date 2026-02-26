@@ -8,8 +8,8 @@
 
 A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicator.
 
-**Real-time DX spots • ICOM IC-705 integration • Weather & propagation data**
-
+**Real-time HamAlert.org spots • ICOM IC-705 integration • Weather & propagation data**<br>
+(***HamAlert Spots work, but IC-705 intergration as not been sucessful yet, and I also don't think Wx/propagation works***)
 </div>
 
 <p align="center">
@@ -33,11 +33,13 @@ A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicat
 - **Activity Charts** - Visual timeline showing spot activity over time with mode distribution
 
 ### 📻 ICOM IC-705 Integration
+  (not successfully completed)
 - **Real-time Radio Display** - Shows frequency, mode, and S-meter readings from your IC-705
 - **Bluetooth & WiFi Support** - Connect via BLE or CI-V over WiFi
 - **S-Meter Visualization** - Live signal strength bar display
 
 ### 🌤️ Weather Information
+  (may not work, I can't remember)
 - **Current Conditions** - Temperature, humidity, wind, and weather description
 - **12-Hour Forecast** - Hourly temperature and precipitation predictions
 - **Severe Weather Alerts** - Automatic display of NWS weather warnings
