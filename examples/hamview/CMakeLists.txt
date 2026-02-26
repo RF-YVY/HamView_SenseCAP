@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.5)
+
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+
+set(EXTRA_COMPONENT_DIRS ../../components)
+
+set(EXCLUDE_COMPONENTS LoRaWAN)
+
+add_compile_options(-fdiagnostics-color=always -w)
+
+project(hamview)

@@ -1,0 +1,32 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "lv_port.c"
+        "wifi_ui.c"
+        "indicator/indicator_wifi.c"
+        "hamview_backend.c"
+        "hamview_settings.c"
+        "hamview_weather.c"
+        "hamview_icom.c"
+        "hamview_ui.c"
+        "hamview_screen.c"
+        "hamview_alert.c"
+        "hamview_event_log.c"
+    INCLUDE_DIRS
+        "."
+        "indicator"
+    REQUIRES
+        bsp
+        esp_event
+        esp_netif
+        esp_wifi
+        esp_timer
+        driver
+        lvgl
+        nvs_flash
+        esp_http_client
+        esp_http_server
+        json
+        bt
+        lora
+)

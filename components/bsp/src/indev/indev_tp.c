@@ -166,6 +166,13 @@ esp_err_t indev_tp_read(uint8_t *tp_num, uint16_t *x, uint16_t *y, uint8_t *btn_
         break;
     }
 
+    if (ret_val != ESP_OK) {
+        *tp_num = 0;
+        *x = 0;
+        *y = 0;
+        return ret_val;
+    }
+
     const board_res_desc_t *brd = bsp_board_get_description();
     if (brd->TOUCH_PANEL_SWAP_XY) {
         uint16_t swap = *x;

@@ -69,7 +69,7 @@ esp_err_t bsp_i2s_deinit(i2s_port_t i2s_num)
 {
     esp_err_t ret_val = ESP_OK;
 
-    ret_val |= i2s_stop(I2S_NUM_0);
+    ret_val |= i2s_stop(i2s_num);
     ret_val |= i2s_driver_uninstall(i2s_num);
 
     return ret_val;

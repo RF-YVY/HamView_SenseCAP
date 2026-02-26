@@ -136,6 +136,10 @@ uint8_t i2c_bus_scan(i2c_bus_handle_t bus_handle, uint8_t *buf, uint8_t num)
     I2C_BUS_MUTEX_TAKE_MAX_DELAY(i2c_bus->mutex, 0);
     for (uint8_t dev_address = 1; dev_address < 127; dev_address++) {
         i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+        if (!cmd) {
+            ESP_LOGE(TAG, "i2c cmd create failed during scan");
+            break;
+        }
         i2c_master_start(cmd);
         i2c_master_write_byte(cmd, (dev_address << 1) | I2C_MASTER_WRITE, I2C_ACK_CHECK_EN);
         i2c_master_stop(cmd);
@@ -163,6 +167,11 @@ esp_err_t i2c_bus_probe_addr(i2c_bus_handle_t bus_handle, uint8_t address)
     
     I2C_BUS_MUTEX_TAKE_MAX_DELAY(i2c_bus->mutex, 0);
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    if (!cmd) {
+        ESP_LOGE(TAG, "i2c cmd create failed while probing");
+        I2C_BUS_MUTEX_GIVE(i2c_bus->mutex, 0);
+        return ESP_ERR_NO_MEM;
+    }
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, (address << 1) | I2C_MASTER_WRITE, I2C_ACK_CHECK_EN);
     i2c_master_stop(cmd);
@@ -357,6 +366,11 @@ static esp_err_t i2c_bus_read_reg8(i2c_bus_device_handle_t dev_handle, uint8_t m
     I2C_BUS_INIT_CHECK(i2c_device->i2c_bus->is_init, ESP_ERR_INVALID_STATE);
     I2C_BUS_MUTEX_TAKE(i2c_device->i2c_bus->mutex, ESP_ERR_TIMEOUT);
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    if (!cmd) {
+        ESP_LOGE(TAG, "i2c cmd create failed (read8)");
+        xSemaphoreGive(i2c_device->i2c_bus->mutex);
+        return ESP_ERR_NO_MEM;
+    }
 
     if (mem_address != NULL_I2C_MEM_ADDR) {
         i2c_master_start(cmd);
@@ -385,6 +399,11 @@ esp_err_t i2c_bus_read_reg16(i2c_bus_device_handle_t dev_handle, uint16_t mem_ad
     memAddress8[1] = (uint8_t)(mem_address & 0x00FF);
     I2C_BUS_MUTEX_TAKE(i2c_device->i2c_bus->mutex, ESP_ERR_TIMEOUT);
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    if (!cmd) {
+        ESP_LOGE(TAG, "i2c cmd create failed (read16)");
+        xSemaphoreGive(i2c_device->i2c_bus->mutex);
+        return ESP_ERR_NO_MEM;
+    }
 
     if (mem_address != NULL_I2C_MEM_ADDR) {
         i2c_master_start(cmd);
@@ -410,6 +429,11 @@ static esp_err_t i2c_bus_write_reg8(i2c_bus_device_handle_t dev_handle, uint8_t 
     I2C_BUS_INIT_CHECK(i2c_device->i2c_bus->is_init, ESP_ERR_INVALID_STATE);
     I2C_BUS_MUTEX_TAKE(i2c_device->i2c_bus->mutex, ESP_ERR_TIMEOUT);
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    if (!cmd) {
+        ESP_LOGE(TAG, "i2c cmd create failed (write8)");
+        xSemaphoreGive(i2c_device->i2c_bus->mutex);
+        return ESP_ERR_NO_MEM;
+    }
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, (i2c_device->dev_addr << 1) | I2C_MASTER_WRITE, I2C_ACK_CHECK_EN);
 
@@ -436,6 +460,11 @@ esp_err_t i2c_bus_write_reg16(i2c_bus_device_handle_t dev_handle, uint16_t mem_a
     memAddress8[1] = (uint8_t)(mem_address & 0x00FF);
     I2C_BUS_MUTEX_TAKE(i2c_device->i2c_bus->mutex, ESP_ERR_TIMEOUT);
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    if (!cmd) {
+        ESP_LOGE(TAG, "i2c cmd create failed (write16)");
+        xSemaphoreGive(i2c_device->i2c_bus->mutex);
+        return ESP_ERR_NO_MEM;
+    }
     i2c_master_start(cmd);
     i2c_master_write_byte(cmd, (i2c_device->dev_addr << 1) | I2C_MASTER_WRITE, I2C_ACK_CHECK_EN);
 

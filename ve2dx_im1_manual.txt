@@ -1,0 +1,893 @@
+
+--- page 1 ---
+   
+ 
+ 2023 Electronic Design VE2DX Inc. All rights reserved ©  
+ 
+ 
+ 
+VE2DX Electronics Design Inc. 
+ 
+VE2DX ICOM METERS 
+WITH TrueCIV TECHNOLOGY. 
+ 
+OCTOBER 12TH 2023 
+ 
+Version 04.02.00 
+ 
+Author: Richard G. Desaulniers Sr. VE2DX 
+ 
+Date Name Comments Revision 
+
+
+--- page 2 ---
+   
+ 
+ 
+ 
+   
+March 8th 2022 VE2DX Release first version 1.6 01.01.00 
+March 9th 2022 VE2DX Updated for version 1.7, fixe data mode bug 
+ 
+01.02.00 
+March 10th 2022 VE2DX Updated for release 1.9, added features Battery meter 
+and Brightness control 
+01.05.00 
+March 12th 2022 VE2DX Updated to release 2.0, added a final version of 
+Brightness and Battery indicator instructions 
+ 
+02.00.00 
+July 4th 2022 VE2DX Updated to new release VE2DX ICOM Meter Version 03.00.00 
+August 1st 2023 VE2DX Updated to new release 04.00.00 
+August 3rd 2023 VE2DX Added TrueCIV information 04.00.01 
+October 12th 2023 VE2DX Prerelease 04.01.00 
+November 17th 2023 VE2DX Cleaned up errors and removed echo setting in Putty 04.02.00 
+ 
+  
+
+--- page 3 ---
+   
+ 
+ 
+ 
+   
+VE2DX ICOM METERS ................................ ................................ ....................... 1 
+WITH TrueCIV TECHNOLOGY. ................................ ................................ .......... 1 
+1. Introduction................................ ................................ ................................ ... 6 
+2. Technical information ................................ ................................ ................... 7 
+2.1. Technical Specification ................................ ................................ ................. 7 
+3. Operations ................................ ................................ ................................ .... 8 
+3.1. Buttons ................................ ................................ ................................ ......... 8 
+3.2. Installation ................................ ................................ ................................ .... 8 
+3.3. Configuration menu ................................ ................................ ...................... 9 
+3.3.1. Radio Selection ................................ ................................ ..................... 9 
+3.3.2. Display Peaks ................................ ................................ ...................... 10 
+3.3.3. Needle Meter Mode ................................ ................................ ............. 10 
+3.3.4. Needle Meter Color ................................ ................................ ............. 10 
+3.3.5. CallSign ................................ ................................ ...............................  10 
+3.3.6. SHOW SERIAL# ................................ ................................ ................. 10 
+3.3.7. Wi-Fi SSID ................................ ................................ ..........................  10 
+3.3.8. Wi-Fi PASSWORD ................................ ................................ .............. 11 
+3.3.9. Remote IP ................................ ................................ ...........................  11 
+3.3.10. Remote Port ................................ ................................ ........................ 11 
+3.3.11. Data LEDs ................................ ................................ ...........................  11 
+3.3.12. CI-V Speed ................................ ................................ ..........................  11 
+3.3.13. CI-V Echo ................................ ................................ ............................  12 
+3.3.14. Transverter Mode ................................ ................................ ................ 12 
+3.3.15. Brightness ................................ ................................ ...........................  12 
+3.3.16. BEEP................................ ................................ ................................ ... 12 
+3.3.17. Screensaver ................................ ................................ ........................ 12 
+3.3.18. Power OFF ................................ ................................ ..........................  12 
+
+--- page 4 ---
+   
+ 
+ 
+ 
+   
+3.3.19. EXIT ................................ ................................ ................................ .... 12 
+3.4. Configuration of USBoIP................................ ................................ ............. 12 
+3.5. Configuration of CIVoIP ................................ ................................ .............. 13 
+4. Configuring your Radio ................................ ................................ ............... 14 
+4.1. Setting up your VE2DX ICOM METER© ................................ ..................... 14 
+4.2. Setting up your Icom IC-705 using Bluetooth. ................................ ............. 14 
+4.3. Setting up a Cabled CI-V ICOM Radio ................................ ........................ 19 
+5. Firmware updates ................................ ................................ ....................... 20 
+6. Password configuration ................................ ................................ .............. 22 
+7. IM1-4BT and IM1-4BTPlus Descriptions. ................................ .................... 23 
+8. IM1-4BTTough Description. ................................ ................................ ........ 25 
+9. Troubleshooting ................................ ................................ ..........................  27 
+10. Warranty ................................ ................................ ................................ ..... 30 
+ 
+  
+
+--- page 5 ---
+   
+ 
+ 
+ 
+   
+ 
+ 
+🔺IMPORTANT🔺 
+Correctly identify your CI-V port (Remote) in your manual plugging the Radio into the IM1-4BT 
+meter. 
+Some radios like ID-52, ID-5100, 2730, etc... require NON_STANDARD CI-V cables to connect to 
+CI-V in the Radio. 
+  To turn on the VE2DX ICOM METER©, hit the Red Power/Reset button on the left side wall. 
+While the VE2DX ICOM METER© is powered on, simply hit ONCE the Red Power/Reset button 
+on the left side wall to reset the application. 
+To turn off the VE2DX ICOM METER©, you must hit TWICE the Red Power/Reset button located 
+on the left side wall (If not power via USB ONLY!) or use the power feature in the menu or use 
+the POWER OFF option in the configuration menu. 
+ 
+Important note:  
+Not all ICOM radios support all CI-V commands that the VE2DX ICOM 
+METER© can offer; the CI-V command tables in all ICOM radios vary; 
+older radios support fewer CI-V commands than newer radios, thus in 
+more complicated displays, and some indicators may not work on 
+older radios. 
+ 
+  
+  
+
+--- page 6 ---
+   
+ 
+ 
+ 
+   
+ 
+1. Introduction 
+Congratulations on your purchase of the VE2DX ICOM METER ©. This ESP32-based fully integrated platform 
+uses VE2DX Electronics Design Inc. code to offer users a flexible device supporting 23 different ICOM radios 
+over four other communication platforms. 
+With the VE2DX ICOM METER ©, you do NOT need to reload or reboot the Meter to change display mode; you 
+simply hit either the left or right buttons to move between screens; this feature is a significant advantage of the 
+VE2DX ICOM METER ©. 
+There are three variations of the VE2DX1 ICOM METER ©. 
+- The IM1-4BT Plus©  comes with the VE2DX CT17B -Micro© Internal Hub  with VE2DX TrueCIV© 
+technology, allowing users to connect to older and newer ICOM radios using CI-V cabled connections. 
+- The IM1-4BT© has the same hardware and firmware as the IM1-4BT Plus© without the VE2DX CT17B-
+Micro© Internal Hub with VE2DX TrueCIV© technology.  
+- The IM1-4BT Tough (TUFF) ©  comes with the VE2DX CT17B-Micro Jr© Internal Hub  with VE2DX 
+TrueCIV© technology, giving the user more flexibility to connect to both older and newer ICOM radios 
+using CI-V cabled connections. This variation uses a water -resistant enclosure, giving the user more 
+flexibility for outdoor use 
+The VE2DX ICOM METER© offers the user a 2 Bar graph type display with multiple information from the radio 
+and 2 Needles style displays that will change from S -Meter to one of 4 different TX mode needle meters (ALC, 
+Power, SWR, COMP) while transmitting. 
+One prominent feature of the VE2DX ICOM METER© is that it automatically shows a flashing alarm message if 
+the SWR goes over three during a transmission. 
+This manual will explain to the user the different features of the VE2DX ICOM METER© , How to install and 
+configure the Meter, how to operate the Meter, and troubleshoot any problems. 
+  
+
+--- page 7 ---
+   
+ 
+ 
+ 
+   
+2. Technical information 
+2.1. Technical Specification 
+The VE2DX ICOM METER © is based on a fully integrated ESP32 platform. 
+Resources Parameter 
+ESP32-D0WDQ6-V3 240MHz dual core, 600 DMIPS, 520KB SRAM, 
+Wi-Fi 
+Flash Memory 4MB (IM1- 4BT and IM1-4BTPlus) and 16MB 
+(IM1-4BTTough) 
+Power Input 5V @ 500mA 
+USB Type C 
+Wi-Fi Integrated 802.11b/g/n HT40 Wi-Fi transceiver, 
+baseband, stack, and LWIP 
+Bluetooth Integrated dual-mode Bluetooth (classic and BLE) 
+Antenna 2.4G 3D Antenna 
+Operating Temperature 0°C to 60°C 
+Net weight 47.2g 
+Product Size 54 x 54 x 18mm 
+Case Material 3D Printed Plastic 
+ 
+
+--- page 8 ---
+   
+ 
+ 
+ 
+   
+ 
+3. Operations  
+3.1. Buttons 
+The operations of the buttons are relatively simple. 
+- Left to go up in the menu or change the display. 
+- Right to go down in the menu or change the display in the opposite direction. 
+- The center button is used to enter the configuration menu and make a selection. 
+ 
+3.2. Installation 
+The installation process is pretty simple. 
+1. Connect the VE2DX ICOM METER© using a USB-C cable to a power source or type 3 PC USB Port. 
+2. Once power is applied, the VE2DX ICOM METER© will power up and show copyrights and version 
+information. 
+3. If you get a screen requesting a password, please go to section 6 below. 
+4. The following display you will get is the last radio display screen used by the Meter when you powered 
+it off. 
+5. You will note some important information on the top line; 
+5.1. In the center of the line, the call sign (VE2DX by default) can be changed in the 
+configuration menu.  This is also where the red HIGH SWR will be flashing if your SWR goes 
+over three during a transmission. 
+5.2. On each side of the call sign box is the status of communication that will flash as data is 
+coming in; these are CI-V, BT (Bluetooth), USB (USB over IP), or CIVoIP (CI-V over IP). 
+5.3. The next box to the right is the radio model linked to the VE2DX ICOM METER©; by 
+default, the 705 will come up. 
+5.4. In the right corner, the connection mode is displayed; by default, this will be set to BT. 
+ 
+
+
+--- page 9 ---
+   
+ 
+ 
+ 
+   
+ 
+ 
+6. To get into the configuration menu, simply push the Center Button. You will get a Blue menu, and the 
+latest configuration option will be shown. 
+6.1. Simply use the left and right buttons to go up and down to the desired option. 
+6.2. The Center Button is used to enter and set the desired option. 
+ 
+ 
+3.3. Configuration menu  
+The configuration menu can be accessed from any four displays by simply hitting the center button. 
+The last menu option selected will be shown; this will be a radio selection by default. 
+ 
+The menu selection shows up in light blue; once selected, the options for that selection are shown in Yellow 
+below the menu. 
+3.3.1.   Radio Selection  
+In the radio selection menu, you can choose from 23 different radios and up to 4 different modes of operation 
+depending on the Radio. 
+ 
+Older radios like 756ProIII or 7000 only support CI-V cabled connections. To use these, you MUST have an 
+IM1-4BT Plus© that comes with the VE2DX CT17B-Micro© Internal Hub with VE2DX TrueCIV© 
+technology; you can add a VE2DX CT17B-Micro© Internal Hub to an IM1-4BT© to upgrade it to an IM1-
+4BT Plus©. 
+ 
+A selection of a radio model followed by CI-V indicates that the Radio MUST be connected to the VE2DX 
+ICOM Meter via a CI-V cable plugged into the Radio REMOTE connector and any of the VE2DX CT17B-
+Micro. 
+ 
+A selection of a radio model followed by BT indicates that the Radio MUST be connected to the VE2DX ICOM 
+Meter via Bluetooth; only the ICOM 705 currently supports this connection. 
+ 
+A selection of a radio model followed by USB indicates that the Radio MUST be connected to the VE2DX 
+ICOM Meter via a USBoIP; this is done using a UDP connection via your Wi-Fi network to the PC where the 
+ICOM radio with USB CI-V support is connected to a USB port. It is explained in 3.5. 
+ 
+A selection of a radio model followed by CIVoIP indicates that the Radio MUST be connected to the VE2DX 
+ICOM Meter via a CIVoIP; this is done using a UDP connection via your Wi-Fi network direct to the ICOM radio 
+with LAN or Wi-Fi CI-V support. It is explained in 3.6. 
+ 
+  
+
+--- page 10 ---
+   
+ 
+ 
+ 
+   
+ 
+3.3.2.   Display Peaks  
+While in bar graph displays, the VE2DX ICOM METER© can offer you the option of holding peak values on the 
+bar using a small yellow vertical bar; this option is turned ON or OFF in this menu setting. 
+ 
+3.3.3.   Needle Meter Mode  
+In either of the two Needle style displays, the Meter will default show the S-Meter when the Radio is in RX.  
+When the Radio is in TX, you can select one of 4 Needle Meter modes in this menu: RF Power, SWR (1) 
+Comp, or ALC. 
+ 
+(1) Even if SWR is NOT selected, if the SWR goes over three, a HIGH SWR alarm will be flashing in red 
+instead of the callsign in the center of the top of the display. 
+ 
+3.3.4.   Needle Meter Color  
+This configuration setting selects one of 3 needle meter background colors. The colors available are Black, 
+White, or Yellow. 
+ 
+3.3.5. CallSign  
+The VE2DX ICOM METER© gives the user the option of changing the call sign being displayed in the center of 
+the top line of the Meter; using the left and right buttons, simply change the displayed letters or numbers to 
+match your call sign, then select them one by one using the center button. Once you are done, simply select 
+the SAVE?, or if you want to cancel, select CANCEL? 
+ 
+3.3.6.   SHOW SERIAL#  
+The VE2DX ICOM METER© firmware is protected using a unique serial number and password; this selection 
+will let you see your serial number, if you do not have your password, simply contact VE2DX ELECTRONIC 
+DESIGN INC. With proof of purchase via email at info@ve2dx.com 
+ 
+3.3.7.   Wi-Fi SSID  
+This selection is used to configure your Wi-Fi SSID if you use the VE2DX ICOM METER© in USBoIP or 
+CIVoIP modes; note you do not need to configure this option. This is done using the left and right buttons; 
+simply change the displayed letters or numbers to match your call sign, then select them individually using the 
+center button. Once you are done, simply select the SAVE? or if you want to cancel, select CANCEL? 
+ 
+  
+
+--- page 11 ---
+   
+ 
+ 
+ 
+   
+3.3.8.   Wi-Fi PASSWORD 
+This selection is used to configure your Wi-Fi SSID PASSWORD if you use the VE2DX ICOM METER© in 
+USBoIP or CIVoIP modes; note you do not need to configure this option. This is done using the left and right 
+buttons; simply change the displayed letters or numbers to match your call sign, then select them individually 
+using the center button. Once you are done, simply select the SAVE? or if you want to cancel, select 
+CANCEL? 
+ 
+3.3.9.   Remote IP 
+When using the VE2DX ICOM METER© in USBoIP or CIVoIP, you need to enter the target UDP device; this 
+device is ided as the REMOTE. In this menu setting, you will enter the Remote device's IP address. This is 
+done using the left and right buttons; simply change the displayed numbers to match your call sign, then select 
+them individually using the center button. Once you are done, simply select the SAVE? or if you want to 
+cancel, select CANCEL? 
+ 
+3.3.10. Remote Port 
+Once the REMOTE IP has been defined, you need to enter the target UDP device port to link the Radio. In this 
+menu setting, you will be entering the port number of the Radio in the Remote device. This is done using the 
+left and right buttons; simply change the displayed digits to match your call sign, then select them individually 
+using the center button. Once you are done, simply select the SAVE? or if you want to cancel, select 
+CANCEL? 
+ 
+3.3.11. Data LEDs 
+The VE2DX ICOM METER© allows the user to monitor data exchanges between the Meter and the Radio; this 
+is done using flashing indicators on each side of the Call Sign in the center of the top line.  The different 
+possibilities are; 
+- If it is present, CI-V shows cabled CI-V activities on the VE2DX CT17B-Micro© Internal Hub. 
+- BT shows Bluetooth CI-V activities. 
+- USB; shows USBoIP CI-V activities via Wi-Fi. 
+- CIVoIP shows CIVoIP CI-V activities via Wi-Fi. 
+ 
+3.3.12. CI-V Speed 
+This selection lets the user set the VE2DX ICOM METER© cabled CI-V Speed; at this time it supports 
+4800bps and 9600bps (1, 2) 
+ 
+(1) 9600bps is the default setting for ICOM radios. 
+ 
+  
+
+--- page 12 ---
+   
+ 
+ 
+ 
+   
+3.3.13. CI-V Echo 
+This feature is not yet available. 
+ 
+3.3.14. Transverter Mode 
+This selection changes the frequency being displayed by the VE2DX ICOM METER© according to 7 possible 
+local oscillator values: 22Mhz, 116Mhz, 118Mhz, 404Mhz, 406Mhz, 1.267Ghz, and 9.968Ghz. 
+ 
+3.3.15. Brightness 
+This selection is used to adjust the display brightness. 
+ 
+3.3.16. BEEP 
+This selection is used to adjust the volume of the beep feedback. 
+ 
+3.3.17. Screensaver 
+This feature is not yet available. 
+ 
+3.3.18. Power OFF 
+This selection is used to turn off the VE2DX ICOM METER©. 
+ 
+3.3.19. EXIT 
+This selection is used to exit the configuration menu. 
+ 
+3.4. Configuration of USBoIP 
+To use CIVoIP, you must have your VE2DX ICOM METER© configured for your WI-FI SSID, Password, 
+REMOTE IP (IP address of the PC where the Radio is plugged into via USB), and REMOTE PORT (Configure 
+UDP port number into the PC where the Radio is plugged into via USB). 
+ 
+- Next, install a UPD Serial Port emulator in the PC like “COM Port Data Emulator” and set up a UDP 
+Server pointing to the COM port used by the Radio CI-V USB port. 
+- Setup the  
+- Select in the VE2DX ICOM METER© configuration menu Radio Selection the Radio and mode showing 
+USBoIP; if it is not in the list, the Radio does not support CI-V on USB. 
+- Reboot the Meter and VE2DX ICOM METER©. 
+- You are now connected. 
+ 
+
+--- page 13 ---
+   
+ 
+ 
+ 
+   
+3.5. Configuration of CIVoIP 
+This feature will be added soon. 
+ 
+  
+
+--- page 14 ---
+   
+ 
+ 
+ 
+   
+4. Configuring your Radio 
+4.1. Setting up your VE2DX ICOM METER© 
+ 
+Simply plug the VE2DX ICOM METER© into a valid USB power source; the unit will automatically power on 
+within 30 seconds. If appropriately configured for 705, the top right side should say 705 and BT. The screen 
+will come up with a NEED PAIRING flashing on the display. 
+Press the middle button to go to the configuration page. 
+Select RADIO SELECTION to properly configure your Radio and mode of communication with the VE2DX 
+ICOM METER©. 
+ 
+4.2. Setting up your Icom IC-705 using Bluetooth. 
+ 
+Note (1) The following is based on the ICOM IC-705; the principals are the same in the ID-52 and ID-5100 
+(with Bluetooth Option); please refer to your ICOM manual for specifics.  
+ 
+The ICOM 705 differs slightly from other radios since it does not have a CI-V port; thus, you must use 
+Bluetooth, USBoIP via Wi-Fi, or CIVoIP via Wi-Fi.  This section will explore how to configure the VE2DX ICOM 
+METER© with an ICOM IC-705 using Bluetooth. 
+ 
+1. Turn On the ICOM IC 705. 
+2. Hit Menu/Set/Bluetooth. 
+ 
+ 
+  
+
+
+--- page 15 ---
+   
+ 
+ 
+ 
+   
+3. Verify that Bluetooth is on. If not, turn it on. 
+ 
+ 
+4. Hit Pair/Connect. 
+ 
+🔺IMPORTANT🔺 
+The ICOM IC-705 cannot have more than 5 Bluetooth devices configured; this includes BOTH 
+data or audio devices if you already have 5 Bluetooth devices configured; 
+5. Hit Device Search 
+ 
+ 
+
+
+--- page 16 ---
+   
+ 
+ 
+ 
+   
+ 
+6. Hit Search Data Device 
+ 
+7. You will see a new device called VE2DX ICOM METER©; select the device; this may take up to 30s. 
+ 
+8. A prompt window will ask “Connect,” hit YES 
+ 
+  
+
+
+--- page 17 ---
+   
+ 
+ 
+ 
+   
+ 
+9. A prompt window will ask, “Confirm the following passkey is shown on VE2DX ICOM METER©.” Don’t 
+worry about the passkey; it may change from unit to unit; simply hit confirm. 
+ 
+10. Windows will then indicate “Connecting” followed by “Connected.” 
+ 
+11. The display will then show your list of Bluetooth devices, and the VE2DX ICOM METER© will be shown 
+with “(Connect).” 
+ 
+  
+
+
+--- page 18 ---
+   
+ 
+ 
+ 
+   
+12. You're done. Hit the Menu Botton. 
+   
+Your VE2DX ICOM METER© should now show you DATA from the ICOM IC-705.  You will also notice a small 
+battery icon in the upper right corner with a % value that will change from 25%, 50%, 75%, or 100%; this is 
+the internal VE2DX ICOM METER© battery charge status. Finally, in the upper left corner of VE2DX ICOM 
+METER© the display, you will see your connection information, in this case, 705 BT; this same information is 
+also shown under the ALC setting of the VE2DX ICOM METER© on the righthand side. 
+  
+
+
+--- page 19 ---
+   
+ 
+ 
+ 
+   
+ 
+ 
+4.3. Setting up a Cabled CI-V ICOM Radio 
+Following the configuration instructions, go into Radio Selection and select your radio models showing CI-V 
+next to it. 
+The CI-V indicates that the VE2DX ICOM METER© will use the VE2DX CT17B-Micro© Internal Hub with 
+VE2DX TrueCIV© technology to communicate with the ICOM Radio. 
+At this time, you may get a “Check CI-V" message flashing on the VE2DX ICOM METER© if the CI-V cable is 
+not plugged into the REMOTE jack of the Radio, the Radio is not powered on, the CI-V address is not set up to 
+default value, or the Speed of the CI-V REMOTE jack does not match the Speed of the VE2DX ICOM 
+METER©. 
+Plug a mono 3.5mm cable from the REMOTE connector in the back of your ICOM radio to any of the 3 CI-V 
+connectors on the side (1) of the VE2DX CT17B-Micro© Internal Hub with VE2DX TrueCIV© technology. 
+(1) The VE2DX CT17B-Micro© Internal Hub with VE2DX TrueCIV© technology is a three-port hub; thus, 
+you can use the other 2 CI-V connectors to link your other ICOM Radios or OEMs CI-V devices. If the 
+connection was done correctly, you should start getting data from the VE2DX ICOM METER©. 
+ 
+  
+
+
+--- page 20 ---
+   
+ 
+ 
+ 
+   
+5. Firmware updates 
+The VE2DX ICOM METER© firmware update process is straightforward. 
+1- Go to https://ve2dx.com/support 
+2- In the FIRMWARE section. 
+3- Download the latest firmware for your device. 
+4- During download, your AntiVirus may alert you to the possibility of a Virus; this does happen randomly; 
+there are no viruses in our update software, so disregard this warning. 
+5- Plug your VE2DX ICOM METER© USB cable into your PC. 
+6- Using DEVICE MANAGER, locate the SERIAL PORT section and identify your COM PORT for your 
+Meter by simply disconnecting it from the PC and looking at the changes in the list. 
+7- Once the EXE file is downloaded, simply run it. 
+ 
+8- Select your COM PORT. 
+  
+
+
+--- page 21 ---
+   
+ 
+ 
+ 
+   
+9- If needed, ERASE the Meter. 
+ 
+10- Press Burn. 
+ 
+11- Look for a black window with process status. 
+12- When done, the Meter will reboot. 
+ 
+On rare occasions, you may be asked to reenter your password; go to section 6 for information on how to enter 
+your password. 
+  
+
+
+--- page 22 ---
+   
+ 
+ 
+ 
+   
+6. Password configuration 
+The VE2DX ICOM METER© may request the Serial Number Password after an update; if this happens, your 
+meter password is located under the Meter, and a second label was shipped in the box. 
+If your firmware password is reset, you will need to follow the following steps; 
+ 
+- Your serial number and password are on a small white label under your device, and a spare label is 
+found in your box. 
+- If you cannot locate your password, contact VE2DX Electronics Design Inc. At info@ve2dx.com, send 
+you the serial number and proof of purchase, and we will send you your password. 
+- Plug your VE2DX ICOM METER into a USB3 port on a Windows 10 PC. 
+- On Windows 10 Control Panel, Open Device Manager. 
+- Expand the Ports(COM & LPT). 
+- While monitoring the Ports(COM & LPT) section, disconnect and plug back in your VE2DX ICOM 
+METER© Note the new COM port number being created. 
+- Download and install PUTTY or another Serial port emulator. 
+- In Putty, Select Serial and set your COM port address to the number found earlier in Device Manager, 
+Ports(COM & LPT). 
+- In Putty, set the Speed to 115200 
+ 
+ 
+- Click on OPEN. 
+- A black background window shows a series of periods (…..); hit ENTER. 
+- You will be asked to enter your password; if you make a mistake, hit ENTER and restart the process. If 
+not, after entering the password, your VE2DX ICOM METER© will reboot, and the first display will be 
+shown. 
+ 
+
+
+--- page 23 ---
+   
+ 
+ 
+ 
+   
+7. IM1-4BT and IM1-4BTPlus Descriptions. 
+ 
+ 
+  
+
+
+--- page 24 ---
+   
+ 
+ 
+ 
+   
+Number description IM1-4BT IM1-4BTPlus 
+ 1 Power/Reset (1) X X 
+2 USB-C Port (2) X X 
+3 IO Port  
+(Not Used) 
+X X 
+4 ICOM CI-V Port  X 
+5 ICOM/Yeasu 
+/Kenwood Port 
+ X 
+6 ICOM CI-V Port  X 
+7 UP Button X X 
+8 Select/Menu Button X X 
+9 DOWN Button X X 
+10 Display X X 
+11 SD Card  
+(Not Used) 
+X X 
+12 Microphone 
+(Not Used) 
+X X 
+13 CE Certification X X 
+14 Serial Number and 
+Password 
+X X 
+15 Speaker X X 
+ 
+  
+
+--- page 25 ---
+   
+ 
+ 
+ 
+   
+8. IM1-4BTTough Description. 
+ 
+ 
+  
+
+
+--- page 26 ---
+   
+ 
+ 
+ 
+   
+Number description IM1-4BTTough 
+1 Power/Reset (1) X 
+2 USB-C Port (2) X 
+3 IO Port  
+(Not Used) 
+X 
+4 ICOM CI-V Port X 
+5 ICOM/Yeasu 
+/Kenwood Port 
+X 
+6 ICOM CI-V Port X 
+7 UP Button X 
+8 Select/Menu Button X 
+9 DOWN Button X 
+10 Display X 
+11 SD Card  
+(Not Used) 
+X 
+12 Microphone 
+(Not Used) 
+X 
+13 CE Certification X 
+14 Serial Number and 
+Password 
+X 
+15 Speaker X 
+16 CT17B-Micro Jr X 
+17 2 x CI-V Ports X 
+  
+
+--- page 27 ---
+   
+ 
+ 
+ 
+   
+9. Troubleshooting 
+Troubleshooting the VE2DX ICOM METER© is pretty simple.  The following table will walk you through the 
+process.  If you do not resolve the issue following your inquiry in this table, please contact your reseller for 
+support or directly VE2DX ELECTRONIC DESIGN INC. Via email at info@ve2dx.com or directly by phone at 
+450-689-4591. 
+Problem Possible issue FRU replacement, if required 
+The Meter won't power up? Press the RED button on the left 
+of the Meter. 
+Bad USB cable. 
+USB cable is not plugged in at 
+both ends. 
+Bad power source,  
+Bad Meter. 
+Disconnect the Radio from the 
+Meter (Ground loop). 
+Try a different USB Cable. 
+Try a different power source. 
+Replace Meter. 
+Is the Meter resetting randomly? Bad USB Cable. 
+Bad Power source. 
+Is your meter firmware up to date? 
+Possible ground loop between 
+Radio and Meter. 
+Bad Meter. 
+Disconnect the Radio from the 
+Meter (Ground loop). 
+Try a different USB Cable. 
+Try a different power source. 
+Replace Meter. 
+Is the Meter not communicating 
+with the Radio? 
+The Radio is turned off. 
+The Radio is not connected to the 
+Meter. 
+The radio model did not match the 
+meter configuration. 
+CI-V speed is not set correctly. 
+Configuration error (Meter, Radio, 
+UDP, etc...) 
+If BT Radio is not paired with the 
+Meter. 
+Power on the Radio. 
+Check configuration (Meter, 
+Radio, UDP, Wi-Fi, etc...) 
+ 
+If BT, ensure the VE2DX ICOM 
+HDMI INTERFACE © is paired 
+and connected. 
+ 
+Check connections. 
+The Meter is very slow. Make sure that TRANSCEIVE is 
+OFF in the radio configuration. (1) 
+Update your firmware. 
+Turn OFF TRANSCEIVE in the 
+radio configuration. 
+On Older radios, a lot of the 
+indicators won't light up. 
+The CI-V table of the older radios 
+is not as detailed as with newer 
+radios. 
+Nothing 
+My Radio is not in the RADIO 
+SELECTION menu 
+Sorry, this means your Radio is 
+not supported (at this time! 😜 ). 
+Contact info@ve2dx.com with the 
+make and model of your Radio; 
+we will see if there is a way to 
+make it work. 
+  
+
+--- page 28 ---
+   
+ 
+ 
+ 
+   
+My Radio is a 756Pro, I selected a 
+756ProIII, and it does not work. 
+Sorry, the CI-V tables for the 756, 
+746, and 706 radio families are all 
+different, and so are the CI-V 
+tables; these were not included 
+These are not supported, sorry 🙁  
+Where are the updates? NA WWW.VE2DX.COM in the support 
+section. 
+Do I have to pay for new features? NA No 
+Do you have a Yeasu version? NA Soon (well, everything is relative!!) 
+What are TrueTTL and TrueCIV NA Please look for my TrueTTL 
+WhitePaper at 
+WWW.VE2DX.COM in the support 
+section. 
+What are all these connectors and 
+MicroSD slots for? 
+NA These are default hardware from 
+the M5Stack Basic that we use as 
+a processor; they are not used in 
+the VE2DX ICOM METER©. 
+Can I just download your firmware 
+and use it? 
+NA Sorry, but no, a license is 
+required; it is based on the unique 
+Serial number of your M5Stack 
+and requires a Password.  
+You can purchase this license 
+from your local Ham Radio dealer 
+or WWW.VE2DX.COM. 
+Can I buy your firmware and use it 
+on my M5Stack Basic? 
+NA Yes, simply download the 
+firmware from our support page at 
+WWW.VE2DX.COM, and you can 
+purchase the license from your 
+local Ham Radio dealer or 
+WWW.VE2DX.COM. 
+I purchased an IM1-4BT. Can I 
+upgrade it to an IM1-4BT Plus? 
+Order a CT17B-Micro Yes, simply order a CT17B-Micro 
+from your local Ham Radio dealer, 
+remove the existing base (2) from 
+the IM1-4BT, replace it with the 
+CT17B-Micro, and you are done; 
+your firmware already supports 
+the CI-V cabled radios. 
+I selected a radio with CI-V next to 
+it but can't find where to plug my 
+3.5mm plug; I don’t see any jacks 
+anywhere. 
+Order a CT17B-Micro You ordered an IM1-4BT; it does 
+not come with the CT17B-Micro. 
+Simply order a CT17B-Micro from 
+your local Ham Radio dealer, 
+remove the existing base (2) from 
+the IM1-4BT, and replace it with 
+the CT17B-Micro, and you are 
+done; your firmware already 
+supports the CI-V cabled radios. 
+  
+
+--- page 29 ---
+   
+ 
+ 
+ 
+   
+ 
+Can I run off a battery? NA Yes, there are three options. 
+- simply get an external power 
+pack that supports USB. 
+We offer two batteries that can be 
+STACKED between the base and 
+the Meter to offer you integrated 
+power, a 750mAh and a 1.5Ah. 
+Simply ask your local Ham Radio 
+dealer for the VE2DX ICOM 
+METER BETTRIES. 
+ 
+(1) ICOM TRANSCEIVE MODE generates hundreds of CI-V packets for a simple move of the knob; this slows 
+drastically the VE2DX ICOM METER©; turning OFF TRANSCEIVE will resolve this issue. 
+If you have an OEM device that requires TRANCEIVE by using PULL mode, the data exchanges between the 
+ICOM radio and the VE2DX ICOM METER© should generate the necessary data for this device. 
+ 
+  
+
+--- page 30 ---
+   
+ 
+ 
+ 
+   
+10. Warranty 
+A 1-year limited warranty on all hardware covers the VE2DX ICOM METER©. 
+The VE2DX ICOM METER© is covered by lifetime updates at no cost. 
+The VE2DX ICOM METER© is covered by lifetime support at no cost. 
+At VE2DX ELECTRONICS DESIGN INC. We are proud to have a WAY TOO LARGE OPEN-DOOR policy; if 
+you have a question, a new feature, or a project that you would like to discuss with us, please give us a call at 
+450-689-4591 or drop us an email at info@ve2dx.com, we will discuss the idea or question with you with a 
+smile 😜  
+If you are looking for an ELMER, please give us a call. We will be happy to try to help you. 
+ 
+73 De Richard VE2DX 😋 

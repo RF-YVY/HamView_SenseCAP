@@ -141,15 +141,22 @@ esp_err_t ft5x06_read_pos(uint8_t *touch_points_num, uint16_t *x, uint16_t *y)
     esp_err_t ret_val = ESP_OK;
     static uint8_t data[4];
 
-    ret_val |= ft5x06_get_touch_points_num(touch_points_num);
-
-    if (0 == *touch_points_num) {
-    } else {
-        ret_val |= ft5x06_read_bytes(FT5x06_TOUCH1_XH, 4, data);
-
-        *x = ((data[0] & 0x0f) << 8) + data[1];
-        *y = ((data[2] & 0x0f) << 8) + data[3];
+    ret_val = ft5x06_get_touch_points_num(touch_points_num);
+    if (ret_val != ESP_OK) {
+        return ret_val;
     }
+
+    if (*touch_points_num == 0) {
+        return ESP_OK;
+    }
+
+    ret_val = ft5x06_read_bytes(FT5x06_TOUCH1_XH, 4, data);
+    if (ret_val != ESP_OK) {
+        return ret_val;
+    }
+
+    *x = ((data[0] & 0x0f) << 8) + data[1];
+    *y = ((data[2] & 0x0f) << 8) + data[3];
 
     return ret_val;
 }

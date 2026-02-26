@@ -15,7 +15,7 @@
 #include <string.h>
 
 #include "bsp_board.h"
-#include "bsp_hid_indev.h"
+#include "indev_hid.h"
 #include "esp_bt.h"
 #include "esp_bt_defs.h"
 #include "esp_bt_device.h"
@@ -84,7 +84,7 @@ esp_err_t indev_hid_init_default(void)
     indev_hid_conf_t conf = {
         .init_ble_service = true,
     };
-    return bsp_hid_indev_init(&conf);
+    return indev_hid_init(&conf);
 }
 
 esp_err_t indev_hid_get_value(indev_hid_state_t *state)
@@ -111,12 +111,14 @@ static esp_err_t bsp_mouse_event_handler(uint8_t *data, uint16_t length, esp_hid
     int dy = * ((int16_t *) &data[3]);
     int dz = * ((int8_t *)  &data[5]);
 
+    const board_res_desc_t *brd = bsp_board_get_description();
+
     mouse_state.x += dx;
     if (mouse_state.x < 0)              mouse_state.x = 0;
-    if (mouse_state.x >= LCD_WIDTH)     mouse_state.x = LCD_WIDTH - 1;
+    if (mouse_state.x >= brd->LCD_WIDTH)     mouse_state.x = brd->LCD_WIDTH - 1;
 
     mouse_state.y += dy;
-    if (mouse_state.y >= LCD_HEIGHT)    mouse_state.y = LCD_HEIGHT - 1;
+    if (mouse_state.y >= brd->LCD_HEIGHT)    mouse_state.y = brd->LCD_HEIGHT - 1;
     if (mouse_state.y < 0)              mouse_state.y = 0;
 
     mouse_state.press = 0 != data[0];
