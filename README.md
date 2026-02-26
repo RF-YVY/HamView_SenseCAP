@@ -1,5 +1,6 @@
 <p align="center">
   <img src="https://files.seeedstudio.com/wiki/SenseCAP/SenseCAP_Indicator/SenseCAP_Indicator_1.png" width="300" alt="HamView on SenseCAP Indicator">
+  <img src="https://github.com/user-attachments/assets/d6ae8685-5951-40a8-96d0-46f06478e5ee" width="300">
 </p>
 
 <div align="center">
