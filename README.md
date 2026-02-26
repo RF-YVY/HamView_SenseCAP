@@ -1,88 +1,197 @@
 <p align="center">
-  <a href="https://wiki.seeedstudio.com/SenseCAP_Indicator_How_To_Flash_The_Default_Firmware/">
-    <img src="https://files.seeedstudio.com/wiki/wiki-platform/SeeedStudio.png" width="auto" height="auto" alt="SenseCAP">
-  </a>
+  <img src="https://files.seeedstudio.com/wiki/SenseCAP/SenseCAP_Indicator/SenseCAP_Indicator_1.png" width="300" alt="HamView on SenseCAP Indicator">
 </p>
 
 <div align="center">
 
-# **SenseCAP Indicator ESP32**
+# **HamView for SenseCAP Indicator**
 
-<!-- This project is developed based on ESP32-IDF, and Using C/C++ language development. There are some examples to teach you how to use some functions of ESP32. The firmware of the example is burned into the ESP32 MCU. -->
+A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicator.
 
-This project is built on the ESP32 IoT Development Framework (IDF) and utilizes the C/C++ programming language for development.
+**Real-time DX spots • ICOM IC-705 integration • Weather & propagation data**
 
 </div>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/seeed-solution/SenseCAP_Indicator_ESP32/main/LICENSE">
-    <img src="https://img.shields.io/github/license/seeed-solution/SenseCAP_Indicator_ESP32" alt="license">
-  </a>
-  <a href="https://github.com/seeed-solution/SenseCAP_Indicator_ESP32/releases">
-    <img src="https://img.shields.io/github/v/release/seeed-solution/SenseCAP_Indicator_ESP32?include_prereleases&color=blueviolet" alt="release">
-  </a>
-    <img src="https://img.shields.io/github/repo-size/seeed-solution/SenseCAP_indicator_ESP32" alt="repo-size">
   <a href="https://docs.espressif.com/projects/esp-idf/en/release-v5.1/esp32/">
-    <img src="https://img.shields.io/badge/esp--idf-v5.1-00b202" alt="repo-size">
+    <img src="https://img.shields.io/badge/esp--idf-v5.1-00b202" alt="ESP-IDF v5.1">
   </a>
-  <a href="https://deepwiki.com/Seeed-Solution/SenseCAP_Indicator_ESP32">
-    <img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki">
+  <a href="https://raw.githubusercontent.com/RF-YVY/HamView_SenseCAP/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="license">
   </a>
 </p>
 
-> Relevant: [SenseCAP Indicator RP2040](https://github.com/Seeed-Solution/SenseCAP_Indicator_RP2040) | [Share Your Projects HERE](https://github.com/Seeed-Solution/SenseCAP_Indicator_ESP32/discussions/33)
+---
 
-The project includes various examples that demonstrate how to effectively use ESP32 functions. To test the examples, the firmware is programmed onto the ESP32 microcontroller unit (MCU).
+## Features
 
-## Example Layout
+### 📡 Live DX Spot Feed
+- **HamAlert Integration** - Connects to [HamAlert.org](https://hamalert.org) for real-time DX cluster spots
+- **Customizable Filters** - Filter spots by callsign, band, and mode (CW, Digital, Voice)
+- **Spot Age Control** - Configure how long spots remain visible (TTL)
+- **Priority Alerts** - Set up audio alerts for specific callsigns, states, or countries
+- **Activity Charts** - Visual timeline showing spot activity over time with mode distribution
 
-- `button`  Demonstrates how to use the configurable buttons in SenseCAP Indicator.
-- `console` Demonstrates how to use of command line functions.
-- `esp32_rp2040_comm` Demonstration showcases the communication between ESP32 and RP2040.
-- `indicator_basis`  This is a comprehensive demo,mainly implements time, sensor data display, and some configuration functions.
-- `indicator_openai` This is a comprehensive demo,mainly based on the indicator_basis demo with added chartGPT and DALL•E functions.
-- `indicator_lora`  Demonstrates how to communicate using lora in SenseCAP Indicator.
-- `lvgl_demos` Demonstrated some demos of lvgl.
-- `photo_demo` Demonstrates how to display a photo of yourself.
-- `squareline_demo` Demonstrates how to display the UI file exported by the squareline project.
-- `lorawan_demo` Demonstrates how to communicate using lorawan in SenseCAP Indicator.
+### 📻 ICOM IC-705 Integration
+- **Real-time Radio Display** - Shows frequency, mode, and S-meter readings from your IC-705
+- **Bluetooth & WiFi Support** - Connect via BLE or CI-V over WiFi
+- **S-Meter Visualization** - Live signal strength bar display
 
-## Usage
+### 🌤️ Weather Information
+- **Current Conditions** - Temperature, humidity, wind, and weather description
+- **12-Hour Forecast** - Hourly temperature and precipitation predictions
+- **Severe Weather Alerts** - Automatic display of NWS weather warnings
+- **Sunrise/Sunset Times** - Perfect for grey-line propagation planning
+- **Lightning & High Wind Warnings** - Know when to disconnect your antenna!
+
+### 📊 Additional Features
+- **RF Radar Panel** - Scan and display nearby WiFi networks, BLE devices, and LoRa activity
+- **Event Logging** - System event log for troubleshooting
+- **Adjustable Display** - Screen brightness control and auto-sleep timeout
+- **Temperature Units** - Switch between Fahrenheit and Celsius
+- **Time Formats** - 12-hour or 24-hour clock display
+- **Touch Interface** - Full touchscreen UI built with LVGL
+
+---
+
+## Hardware Requirements
+
+- **Seeed Studio SenseCAP Indicator** (D1 or D1L model)
+- WiFi network connection
+- (Optional) ICOM IC-705 for radio integration
+
+<div align="center"><img width="400" src="https://files.seeedstudio.com/wiki/SenseCAP/SenseCAP_Indicator/SenseCAP_Indicator_1.png"/></div>
+
+<p align="center"><a href="https://www.seeedstudio.com/SenseCAP-Indicator-D1-p-5643.html"><img src="https://files.seeedstudio.com/wiki/RS485_500cm%20ultrasonic_sensor/image%202.png" border="0" /></a></p>
+
+---
+
+## Installation
+
+### Prerequisites
 
 > [!Warning]  
-> Please use ESP-IDF version `v5.1.x`. Do not use any lower or higher versions.
+> **ESP-IDF version `v5.1.x` is required.** Do not use any lower or higher versions.
 
-1. Get and install the [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#installation-step-by-step) development framework.
-2. Download this project and open it in the ESP-IDF development framework.
-3. run `idf.py build flash` to compile and burn the firmware.
+1. Install the [ESP-IDF v5.1](https://docs.espressif.com/projects/esp-idf/en/release-v5.1/esp32/get-started/index.html#installation-step-by-step) development framework
 
-For more detailed information, please refer to [SenseCAP Indicator How To Flash The Default Firmware](https://wiki.seeedstudio.com/SenseCAP_Indicator_How_To_Flash_The_Default_Firmware/).
+### Build & Flash
 
-## **SenseCAP Indicator**
+1. **Clone this repository:**
+   ```bash
+   git clone https://github.com/RF-YVY/HamView_SenseCAP.git
+   cd HamView_SenseCAP
+   ```
 
-SenseCAP Indicator is a 4-inch touch screen driven by ESP32-S3 and RP2040 Dual-MCU and supports Wi-Fi/Bluetooth/LoRa communication.
+2. **Navigate to the HamView example:**
+   ```bash
+   cd examples/hamview
+   ```
 
-The device comes two Grove interfaces, which supports ADC and I2C transmission protocols, and two USB Type-C ports with GPIO expantion pins inside, so user can easily expand external accessories via USB port.
+3. **Set up ESP-IDF environment:**
+   - **Windows:** Run the ESP-IDF PowerShell or Command Prompt from the Start menu
+   - **Linux/macOS:** Run `. ~/esp/esp-idf/export.sh` (adjust path as needed)
 
-SenseCAP Indicator is a fully open source powerful IoT development platform for developers. One-stop ODM Fusion service is also available for customization and quick scale-up.
+4. **Build the firmware:**
+   ```bash
+   idf.py build
+   ```
 
-<div align="center"><img width={480} src="https://files.seeedstudio.com/wiki/SenseCAP/SenseCAP_Indicator/SenseCAP_Indicator_1.png"/></div>
+5. **Connect your SenseCAP Indicator via USB-C** (use the ESP32 port, not the RP2040 port)
 
-<p align="center" style={{textAlign: 'center'}}><a href="https://www.seeedstudio.com/SenseCAP-Indicator-D1-p-5643.html" ><img src="https://files.seeedstudio.com/wiki/RS485_500cm%20ultrasonic_sensor/image%202.png" border="0" /></a></p>
+6. **Flash the firmware:**
+   ```bash
+   idf.py -p COM_PORT flash
+   ```
+   Replace `COM_PORT` with your actual port (e.g., `COM3` on Windows, `/dev/ttyUSB0` on Linux)
 
+7. **Monitor serial output (optional):**
+   ```bash
+   idf.py -p COM_PORT monitor
+   ```
 
-### **Features**
+For detailed flashing instructions, see the [SenseCAP Indicator Flashing Guide](https://wiki.seeedstudio.com/SenseCAP_Indicator_How_To_Flash_The_Default_Firmware/).
 
+---
 
+## Configuration
 
-- **Dual MCUs and Rich GPIOs**
-Equipped with powerful ESP32S3 and RP2040 dual MCUs and over 400 Grove-compatible GPIOs for flexible expansion options.
-- **Real-time Air Quality Monitoring**
-Built-in tVOC and CO2 sensors, and an external Grove AHT20 TH sensor for more precise temperature and humidity readings.
-- **Local LoRa Hub for IoT Connectivity**
-Integrated Semtech SX1262 LoRa chip (optional) for connecting LoRa devices to popular IoT platforms such as Matter via Wi-Fi, without the need for additional compatible devices.
-- **Fully Open Source Platform**
-Leverage the extensive ESP32 and Raspberry Pi open source ecosystem for infinite application possibilities.
-- **Fusion ODM Service Available**
-Seeed Studio also provides one-stop ODM service for quick customization and scale-up to meet various needs.(please contact iot@seeed.cc)
+After flashing, tap the **Settings** button (gear icon) on the touchscreen to configure:
+
+### HamAlert Settings
+| Setting | Description |
+|---------|-------------|
+| **Username** | Your HamAlert.org username |
+| **Password** | Your HamAlert.org password |
+| **Callsign Filter** | Filter spots for specific callsigns |
+| **Band Filter** | Limit spots to specific bands |
+| **Spot TTL** | How long spots stay visible (minutes) |
+| **Spot Age Filter** | Only show spots newer than X minutes |
+
+### Alert Settings
+| Setting | Description |
+|---------|-------------|
+| **Alert Callsigns** | Comma-separated callsigns to trigger alerts |
+| **Alert States** | US states to trigger alerts (e.g., "CA,TX,NY") |
+| **Alert Countries** | Countries to trigger alerts |
+
+### ICOM IC-705 Settings
+| Setting | Description |
+|---------|-------------|
+| **WiFi Enabled** | Enable CI-V over WiFi connection |
+| **IP Address** | IC-705 WiFi IP address |
+| **Port** | CI-V port (default: 50001) |
+| **Username/Password** | IC-705 WiFi credentials |
+
+### Display Settings
+| Setting | Description |
+|---------|-------------|
+| **Screen Brightness** | Display brightness percentage |
+| **Screen Timeout** | Auto-sleep after X minutes of inactivity |
+| **Weather ZIP** | US ZIP code for local weather |
+
+---
+
+## User Interface
+
+HamView features a tabbed interface with four main sections:
+
+1. **Spots Tab** - Live DX spot table with filtering and activity charts
+2. **Weather Tab** - Current conditions, forecast, and alerts
+3. **IC-705 Tab** - Radio integration display
+4. **Radar Tab** - RF environment scanning (WiFi/BLE/LoRa)
+
+### Status Bar
+The top status bar shows:
+- WiFi connection status and signal strength
+- HamAlert connection status
+- Current local time and UTC time
+
+---
+
+## Credits
+
+- Based on the [SenseCAP Indicator ESP32 SDK](https://github.com/Seeed-Solution/SenseCAP_Indicator_ESP32) by Seeed Studio
+- Weather data provided by the National Weather Service API
+- DX spots provided by [HamAlert.org](https://hamalert.org)
+- UI built with [LVGL](https://lvgl.io/)
+
+---
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## SenseCAP Indicator Hardware
+
+The SenseCAP Indicator is a 4-inch touch screen driven by ESP32-S3 and RP2040 Dual-MCU with Wi-Fi/Bluetooth/LoRa support.
+
+### Key Specifications
+- **Display:** 4-inch 480x480 IPS touchscreen
+- **MCUs:** ESP32-S3 + RP2040 dual processors
+- **Connectivity:** WiFi, Bluetooth, LoRa (optional)
+- **Interfaces:** 2x Grove ports (ADC/I2C), 2x USB-C
+- **Sensors:** Built-in tVOC and CO2 sensors
 
