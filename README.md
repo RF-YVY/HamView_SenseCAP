@@ -75,6 +75,9 @@ A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicat
 
 > [!Warning]  
 > **ESP-IDF version `v5.1.x` is required.** Do not use any lower or higher versions.
+>
+> direct link to a 5.1.5 installer
+> https://github.com/espressif/idf-installer/releases/download/offline-5.1.5/esp-idf-tools-setup-offline-5.1.5.exe
 
 1. Install the [ESP-IDF v5.1](https://docs.espressif.com/projects/esp-idf/en/release-v5.1/esp32/get-started/index.html#installation-step-by-step) development framework
 
