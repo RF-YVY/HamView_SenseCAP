@@ -12,7 +12,7 @@
 A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicator.
 
 **Real-time HamAlert.org spots • ICOM IC-705 integration • Weather & propagation data**<br>
-(***HamAlert Spots work, but IC-705 intergration as not been sucessful yet, and I also don't think Wx/propagation works***)
+(***HamAlert Spots work, but IC-705 intergration as not been sucessful yet***)
 </div>
 
 <p align="center">
