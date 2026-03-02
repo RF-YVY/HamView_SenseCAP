@@ -1,3 +1,5 @@
+<center>Orginal Idea for project from Jim, https://github.com/WT1W-Actual/HamView</center>
+<br><br>
 <p align="center">
   <img src="https://files.seeedstudio.com/wiki/SenseCAP/SenseCAP_Indicator/SenseCAP_Indicator_1.png" width="300" alt="HamView on SenseCAP Indicator">
   <img src="https://github.com/user-attachments/assets/d6ae8685-5951-40a8-96d0-46f06478e5ee" width="300">
@@ -40,7 +42,6 @@ A feature-rich ham radio companion display for the Seeed Studio SenseCAP Indicat
 - **S-Meter Visualization** - Live signal strength bar display
 
 ### 🌤️ Weather Information
-  (may not work, I can't remember)
 - **Current Conditions** - Temperature, humidity, wind, and weather description
 - **12-Hour Forecast** - Hourly temperature and precipitation predictions
 - **Severe Weather Alerts** - Automatic display of NWS weather warnings
